@@ -1,6 +1,6 @@
 package com.rachit.sfgpetclinic.model;
 
-public class petType {
+public class petType extends BaseEntity{
 	
 	private String Name;
 
