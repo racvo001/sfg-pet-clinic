@@ -1,15 +1,14 @@
 package com.rachit.sfgpetclinic.services;
 
-import java.util.Set;
 
 import com.rachit.sfgpetclinic.model.Owner;
 
-public interface OwnerService {
+public interface OwnerService extends CrudService<Owner,Long> {
 	
-	Owner findById(Long id);
 	
-	Owner save(Owner owner);
 	
-	Set<Owner> findAll();
+	Owner findByLastName(String lastName);
+	
+	
 
 }
