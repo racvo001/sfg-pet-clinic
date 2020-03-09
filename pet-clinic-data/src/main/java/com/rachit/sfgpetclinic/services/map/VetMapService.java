@@ -5,16 +5,17 @@ import com.rachit.sfgpetclinic.model.Vet;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import com.rachit.sfgpetclinic.services.CrudService;
+import com.rachit.sfgpetclinic.services.VetService;
 
 import java.util.Set;
 
 /**
  * Created by jt on 7/21/18.
  */
+
+
 @Service
-@Profile({"default", "map"})
-public class VetMapService extends AbstractMapService<Vet, Long> implements  CrudService<Vet, Long> {
+public class VetMapService extends AbstractMapService<Vet, Long> implements  VetService {
 
     
 
@@ -30,11 +31,9 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements  Cru
 
     @Override
     public Vet save(Vet object) {
-
-        
-
-        return super.save(object);
+        return super.save( object);
     }
+
 
     @Override
     public void delete(Vet object) {

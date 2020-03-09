@@ -4,16 +4,17 @@ import com.rachit.sfgpetclinic.model.Pet;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import com.rachit.sfgpetclinic.services.CrudService;
+import com.rachit.sfgpetclinic.services.PetService;
 
 import java.util.Set;
 
 /**
  * Created by jt on 7/21/18.
  */
+
+
 @Service
-@Profile({"default", "map"})
-public class PetMapService extends AbstractMapService<Pet, Long> implements  CrudService<Pet, Long> {
+public class PetMapService extends AbstractMapService<Pet, Long> implements  PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
@@ -26,7 +27,7 @@ public class PetMapService extends AbstractMapService<Pet, Long> implements  Cru
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object);
+        return super.save( object);
     }
 
     @Override
