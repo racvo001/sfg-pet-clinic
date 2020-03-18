@@ -2,6 +2,7 @@ package com.rachit.sfgpetclinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.rachit.sfgpetclinic.model.Speciality;
@@ -9,6 +10,7 @@ import com.rachit.sfgpetclinic.services.SpecialtyService;
 
 
 @Service
+@Profile({"default","map"})
 public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialtyService {
 
     @Override

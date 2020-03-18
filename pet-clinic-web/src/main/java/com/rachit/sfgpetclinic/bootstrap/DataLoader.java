@@ -12,11 +12,13 @@ import com.rachit.sfgpetclinic.model.Owner;
 import com.rachit.sfgpetclinic.model.Pet;
 import com.rachit.sfgpetclinic.model.Speciality;
 import com.rachit.sfgpetclinic.model.Vet;
+import com.rachit.sfgpetclinic.model.Visit;
 import com.rachit.sfgpetclinic.model.petType;
 import com.rachit.sfgpetclinic.services.OwnerService;
 import com.rachit.sfgpetclinic.services.PetTypeService;
 import com.rachit.sfgpetclinic.services.SpecialtyService;
 import com.rachit.sfgpetclinic.services.VetService;
+import com.rachit.sfgpetclinic.services.VisitService;
 
 
 @Component
@@ -27,13 +29,17 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
     
-	  public DataLoader(OwnerService ownerService, VetService vetService,PetTypeService petTypeService,SpecialtyService specialtyService) {
+	  public DataLoader(OwnerService ownerService, VetService vetService,
+			 PetTypeService petTypeService,SpecialtyService specialtyService,
+			 VisitService visitService) {
 	  
 	  this.specialtyService = specialtyService;
 	  this.ownerService = ownerService; 
 	  this.vetService = vetService;
 	  this.petTypeService = petTypeService;
+	  this.visitService = visitService;
 	  
 	  }
 	 
@@ -106,6 +112,14 @@ public class DataLoader implements CommandLineRunner {
         
 
         ownerService.save(owner2);
+        
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty");
+
+        visitService.save(catVisit);
+
 
         
         System.out.println("Loaded Owners....");
